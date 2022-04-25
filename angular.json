@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "editor-ang11": {
+    "editors": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/editor-ang11",
+            "outputPath": "dist/editors",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "editor-ang11:build"
+            "browserTarget": "editors:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "editor-ang11:build:production"
+              "browserTarget": "editors:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "editor-ang11:build"
+            "browserTarget": "editors:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "editor-ang11:serve"
+            "devServerTarget": "editors:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "editor-ang11:serve:production"
+              "devServerTarget": "editors:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "editor-ang11"
+  "defaultProject": "editors"
 }
