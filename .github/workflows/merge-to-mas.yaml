@@ -30,7 +30,7 @@ jobs:
 
             - name: Merge to mas-ad
               run: |
-                  git merge ${{ github.event.inputs.branch }}
+                  git merge origin/${{ github.event.inputs.branch }}
 
             - name: Commit Changes to mas-ad
               run: |
