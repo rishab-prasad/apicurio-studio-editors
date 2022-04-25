@@ -34,8 +34,6 @@ jobs:
 
             - name: Commit Changes to mas-ad
               run: |
-                  git add .
-                  git commit -m "Merged latest from ${{ github.event.inputs.branch }} into mas-ad"
                   git push
 
             - name: Google Chat Notification
