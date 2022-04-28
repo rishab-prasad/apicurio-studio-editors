@@ -10,7 +10,8 @@ on:
         required: true
         type: string
 
-publish-image:    
+jobs:
+  publish-image:    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
