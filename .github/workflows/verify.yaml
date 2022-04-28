@@ -34,7 +34,7 @@ jobs:
 
 
   publish-snapshot-image:
-    needs: [release]
+    needs: [build-project]
     if: github.event_name == 'push'
     uses: ./.github/workflows/release-images.yaml
     with:
