@@ -1,0 +1,41 @@
+name: Verify Workflow
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  build-project:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{matrix.node-version}}
+     
+      - name: Installing dependencies
+        run: npm install
+
+      - name: Clean dist
+        run: npm run prebuild
+
+      - name: Run production build
+        run: npm run build
+
+
+  publish-snapshot-image:
+    needs: [release]
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/release-images.yaml
+    with:
+      image-tag: "latest-snapshot"
